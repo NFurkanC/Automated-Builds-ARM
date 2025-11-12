@@ -35,7 +35,7 @@ jobs:
       - name: Prepare compilation environment
         run: |
           cd duo-examples
-          source envsetup.sh | echo 2 | echo 1
+          printf "2\n1\n" | source envsetup.sh 
           
       - name: Compile Test
         run: |
