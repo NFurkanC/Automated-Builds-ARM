@@ -35,9 +35,8 @@ jobs:
       - name: Prepare compilation environment
         run: |
           cd duo-examples
-          source envsetup.sh
-          echo 2
-          echo 1
+          source envsetup.sh | echo 2 | echo 1
+          
       - name: Compile Test
         run: |
           cd hello-world
