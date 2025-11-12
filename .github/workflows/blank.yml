@@ -37,13 +37,11 @@ jobs:
           cd duo-examples
           printf "2\n1\n" | source envsetup.sh 
           
-      - name: Go To Compile Test Directory
-        run: |
-          ls -al
-          cd hello-world
-          
       - name: Compile Test
-        run: make
+        run: | 
+          cd duo-examples/hello-world/
+          make
+          ls -al
           
 
       # Runs a set of commands using the runners shell
