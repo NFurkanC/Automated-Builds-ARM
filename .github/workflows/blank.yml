@@ -52,11 +52,11 @@ jobs:
           
           cd hello-world/
           make
-
-        shell: bash
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo lmao \n
-          echo already successful
+          ls -al
+          
+      - name: Upload the executable.
+        uses: actions/upload-artifact@v5.0.0
+        with:
+          name: output
+          path: ./helloworld
+          
