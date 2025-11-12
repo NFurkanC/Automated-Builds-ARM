@@ -40,6 +40,7 @@ jobs:
           ls -al
           cd hello-world/
           ls -al
+          export TOOLCHAIN_PREFIX="${toolchain_dir}/bin/aarch64-linux-gnu-"
           make
           ls -al
           
