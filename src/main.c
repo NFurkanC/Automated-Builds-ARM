@@ -25,10 +25,10 @@ int main() {
     while(1) {
         printf("Duo LED GPIO (wiringX) %d: High\n", DUO_LED);
         digitalWrite(DUO_LED, HIGH);
-        sleep(1);
+        sleep(5);
         printf("Duo LED GPIO (wiringX) %d: Low\n", DUO_LED);
         digitalWrite(DUO_LED, LOW);
-        sleep(1);
+        sleep(5);
     }
 
     return 0;
