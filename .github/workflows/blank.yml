@@ -34,7 +34,8 @@ jobs:
           key: duo-s-cache
           save-always: true
 
-      - name: Clone toolchain repository
+      - name: Clone toolchain repository if not cached
+        if: steps.cache.outputs.cache-hit != 'true'
         run: git clone https://github.com/milkv-duo/duo-examples.git
 
       - name: Prepare compilation environment and compile the files in repository
