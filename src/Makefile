@@ -1,4 +1,6 @@
-TARGET=blink
+TARGET_NAME=blink
+TARGET_SUFFIX=.duo
+TARGET=$(TARGET_NAME)$(TARGET_SUFFIX)
 BUILD_DIR= ../build
 
 # Check Errors
