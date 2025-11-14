@@ -1,5 +1,7 @@
 TARGET=blink
+BUILD_DIR= ../build
 
+# Check Errors
 ifeq (,$(TOOLCHAIN_PREFIX))
 $(error TOOLCHAIN_PREFIX is not set)
 endif
@@ -12,21 +14,25 @@ ifeq (,$(LDFLAGS))
 $(error LDFLAGS is not set)
 endif
 
+# Set Compiler
 CC = $(TOOLCHAIN_PREFIX)gcc
 
+# Set Flags and Libraries
 LDFLAGS += -lwiringx
 
+# Source and Object Files
 SOURCE = $(wildcard *.c)
-OBJS = $(patsubst %.c,%.o,$(SOURCE))
+OBJS = $(patsubst %.c,$(BUILD_DIR)/%.o,$(SOURCE))
 
+# Build Target
 $(TARGET): $(OBJS)
+	@mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
-%.o: %.c
+$(BUILD_DIR)/%.o: %.c
+	@mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 .PHONY: clean
 clean:
-	@rm *.o -rf
-	@rm $(OBJS) -rf
-	@rm $(TARGET)
+	@rm -rf $(BUILD_DIR)
